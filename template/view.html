@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block article %}
+
+<h2>{{ page.article['art_title'] }}</h2>
+<div class="author-date">
+    Por {{ page.article['sta_name'] }}
+    <span> em {{ page.article['art_datebr'] }}</span>
+</div>
+{{ page.article['art_content'] | safe }}
+
+<div class="comment-form">
+
+    <h3>Comente!</h3>
+    <p class="required">Todos os campos obrigatórios!</p>
+
+    <form action="/comment" method="post">
+        <input type="hidden" name="{{ page.article['art_id'] }}">
+
+        <div class="comment-field">
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" required maxlength="3">
+        </div>
+
+        <div class="comment-field">
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+
+        <textarea name="comment"></textarea>
+
+        <div>
+            <button type="submit">Enviar</button>
+            <small>&larr; Clique somente uma vez</small>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}
+
+{% block aside %}
+
+<h3>{{ page.article['sta_name'] }}</h3>
+
+<div class="aside-author">
+
+    <img src="{{ page.article['sta_image']}}" alt="{{ page.article['sta_name'] }}">
+
+    <ul>
+        <li>{{ page.article['sta_age'] }} anos</li>
+        <li>{{ page.article['sta_pt_type'] }}</li>
+    </ul>
+
+    {{ page.article['sta_description'] }}
+
+</div>
+
+{% if page.articles != () %}
+
+<h3><i class="fa-solid fa-plus"></i> Artigos de {{ page.article['sta_first'] }}</h3>
+
+<div class="aside-grid">
+
+    {% for article in page.articles %}
+
+    <div class="aside-article" onclick="location.href = '/view/{{ article.art_id }}'">
+        <img src="{{ article['art_thumbnail'] }}" alt="{{ article['art_title'] }}">
+        <div>{{ article['art_title'] }}</div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endif %}
+
+{% endblock %}

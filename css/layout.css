@@ -1,355 +1,273 @@
-/* Carrega a fonte "Roboto" do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* CSS do tema do site */
 
-/* Carrega a biblioteca de ícones Font Awesome */
+/* Importações */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
 
-/* Reset para que o CSS seja o mesmo em todos os navegadores modernos */
-
-/* Reset de todas as caixas */
 * {
     box-sizing: border-box;
     outline: none;
-}
-
-/* Reset de formulários */
-input,
-textarea,
-button {
-    font-family: inherit;
-    font-size: inherit;
-}
-
-/* Reset dos links */
-a {
-    text-decoration: none;
-    color: steelblue;
-}
-
-a:hover {
-    text-decoration: underline;
-    color: orangered;
+    transition: .2s;
 }
 
 html,
-body,
-#wrap {
-    /* Reset dos elementos raiz */
-    /* Para usar height=100% */
+body {
+    font-family: sans-serif;
+    font-size: 16px;
     position: relative;
     width: 100%;
-    /* Sticky footer */
     height: 100%;
     padding: 0;
     margin: 0;
 }
 
-html,
 body {
-    /* Fonte padrão do site */
-    font-family: Roboto, sans-serif;
-
-    /* Tamanho da fonte padrão → 16px → 1rem */
-    font-size: 16px;
-}
-
-body {
-    /* Fundo da página */
-    background-color: rgb(240, 240, 240);
-    background-image: url('/static/img/snakebg2.png');
+    background-color: slategray;
+    background-image: url('/static/img/bg01.png');
+    background-position: top left;
     background-attachment: fixed;
 }
 
+a {
+    color: steelblue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: orangered;
+}
+
 #wrap {
-    /* Largura máxima → 1080px - barra de rolagem */
+    position: relative;
+    width: 100%;
+    height: 100%;
     max-width: 1024px;
-    /* Largura mínima → 320px - barra de rolagem */
     min-width: 280px;
-    /* Bloco centralizado */
     margin: auto;
-    /* Sticky footer */
     display: flex;
     flex-direction: column;
 }
-
-/* Estiliza filhos de #wrap */
-#wrap>header,
-#wrap>nav,
-#wrap>footer,
-#wrap>main>article,
-#wrap>main>aside {
-    margin: .5rem .5rem 0 .5rem;
-    border-radius: .5rem;
-}
-
-#wrap>main>aside {
-    margin-left: 0;
-    border-radius: .5rem;
-}
-
-/*********************
- ***** Cabeçalho *****
- *********************/
 
 #wrap>header {
-    background-color: rgb(70, 130, 180);
+    background-color: rgb(89, 162, 221);
     display: flex;
     flex-direction: column;
 }
 
-#wrap>header>a {
+#wrap>header>div {
     display: flex;
     align-items: center;
-    text-decoration: none;
-    color: rgb(255, 102, 0);
 }
 
-#wrap>header img {
+#wrap>header>div img {
+    height: 4rem;
+    width: auto;
     display: block;
-    height: 3.7rem;
-    margin: .25rem .5rem .25rem .5rem;
+    margin: 0 .5rem;
 }
 
-#wrap>header h1 {
+#wrap>header>div h1 {
     margin: 0;
+    color: orange;
+    -webkit-text-stroke: .5px black;
     font-size: 2.5rem;
-    letter-spacing: .25rem;
-    text-align: center;
-    /* Experimental → Alica borda no texto */
-    -webkit-text-stroke: 1px rgb(255, 255, 255);
 }
 
-#wrap>header small {
-    display: block;
-    font-size: .7rem;
-    letter-spacing: normal;
-    font-weight: normal;
-    color: rgb(255, 255, 255);
-    /* Experimental → Remove borda no texto  */
-    -webkit-text-stroke: 0;
-}
-
-/* Botão do menu principal em mobile */
-
-#toggleMenu {
-    margin-left: auto;
-    margin-right: .5rem;
-}
-
-#toggleMenu i {
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-/* Formulário de busca no header */
-
-#wrap>header form {
+#wrap>header>form {
+    background-color: orange;
     display: flex;
+    align-items: center;
     padding: 1rem;
+    border-top: 1px dotted white;
 }
 
-#wrap>header form input {
+#wrap>header>form input,
+#wrap>header>form button {
+    font-family: inherit;
+    font-size: inherit;
+    padding: .25rem .5rem;
+    border: none;
+}
+
+#wrap>header>form input {
     flex-grow: 1;
-    border-radius: .3rem 0 0 .3rem;
-    background-color: rgb(255, 255, 255);
-    padding: .5rem .75rem;
-    border: none;
 }
 
-#wrap>header form button {
-    border-radius: 0 .3rem .3rem 0;
-    background-color: rgb(255, 255, 255);
-    padding: .5rem .25rem;
-    border: none;
-}
-
-#wrap>header form button:hover {
-    background-color: rgb(229, 229, 229);
+#wrap>header>form button {
     cursor: pointer;
+    background-color: #ddd;
 }
 
-/*************************
- ***** Menu Prinipal *****
- *************************/
+#wrap>header>form button:hover {
+    cursor: pointer;
+    background-color: #bbb;
+}
 
 #wrap>nav {
-    background-color: rgba(0, 0, 0, .9);
+    background-color: rgb(50, 59, 68);
+    border-top: 1px dotted white;
+    border-bottom: 1px dotted white;
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 9rem;
-    z-index: 1000;
-    width: 220px;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #wrap>nav a {
-    color: rgb(255, 255, 255);
+    color: #ddd;
     text-decoration: none;
-    display: flex;
-    /* align-items: center; */
     padding: 1rem;
-    transition: .2s;
-    border-bottom: 1px dotted grey;
-}
-
-#wrap>nav a:last-child {
-    border-bottom: none;
-}
-
-#wrap>nav a:hover {
-    color: rgb(255, 165, 0);
-}
-
-#wrap>nav i {
-    font-size: 1.2rem;
-    margin-right: .5rem;
-}
-
-#wrap>nav span {
-    font-size: 1rem;
     text-transform: uppercase;
 }
 
-/****************************
- ***** Template central *****
- ****************************/
+#wrap>nav a:hover {
+    color: rgb(50, 59, 68);
+    background-color: #ddd;
+}
 
 #wrap>main {
-    /* Sticky Footer */
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 #wrap>main>article {
-    background-color: rgba(255, 255, 255, .9);
-    padding: 1rem;
-    /* Sticky Footer */
+    background-color: white;
+    padding: 0 1rem;
     flex-grow: 1;
 }
 
-#wrap>main>article>h2:first-child,
-#wrap>main>aside>h3:first-child {
-    margin: 0;
-}
-
 #wrap>main>aside {
-    background-color: rgb(255, 243, 219);
-    padding: 1rem;
+    background-color: #ccc;
+    padding: 0 1rem;
+    border-top: 1px dotted black;
 }
-
-/******************
- ***** Rodapé *****
- ******************/
 
 #wrap>footer {
-    background-color: rgb(0, 0, 0);
-    color: white;
-}
-
-#wrap>footer a {
-    color: white;
-}
-
-#wrap>footer a:hover {
-    color: orange;
-    text-decoration: none;
-}
-
-.footer_top {
+    background-color: rgb(50, 59, 68);
+    color: #ddd;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .5rem 0;
-    border-bottom: 1px dotted gray;
 }
 
-.footer_top a i {
+#wrap>footer>a {
     font-size: 1.5rem;
-    margin: .5rem;
+    padding: .5rem;
+    color: #ddd;
 }
 
-.footer_top div {
-    font-size: small;
+#wrap>footer a:hover {
+    color: steelblue;
 }
 
-.footer_botton {
-    display: flex;
-    justify-content: space-around;
+#wrap>footer>div {
+    text-align: center;
     padding: 1rem 0;
 }
 
-.footer_botton nav {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.9;
+#wrap>footer>div a {
+    color: #ddd;
+    text-decoration: none;
 }
 
-.footer_botton nav h4 {
-    margin: 0 0 .5rem 0;
+#wrap>footer>div small {
+    display: block;
+    font-size: 65%;
+    margin-top: .25rem;
 }
 
-.footer_botton nav a {
-    margin-left: 1rem;
-}
+@media screen and (min-width: 575px) {
 
-/********************************************
- ***** Resoluções de 640 pixels ou mais *****
- ***** Usando Media Queries             *****
- ********************************************/
-
-@media screen and (min-width: 600px) {
-
-    /* Altera o cabeçalho */
     #wrap>header {
         flex-direction: row;
-        align-items: center;
         justify-content: space-between;
     }
 
-    #wrap>nav {
-        flex-direction: row;
-        justify-content: flex-end;
-        position: initial;
-        width: auto;
+    #wrap>header>div h1 {
+        font-size: 2rem;
     }
 
-    #wrap>nav a {
-        color: rgb(255, 255, 255);
-        text-decoration: none;
-        display: flex;
-        padding: 1rem;
-        transition: .2s;
-        border-bottom: 1px dotted grey;
+    #wrap>header>form {
+        border-top: none;
+        border-left: 1px dotted white;
+    }
+
+    #wrap>header>form input,
+    #wrap>header>form button {
+        padding: .35rem .5rem;
+    }
+
+    #wrap>nav {
+        justify-content: flex-end;
     }
 
     #wrap>nav a:first-child {
         margin-right: auto;
     }
 
-    #toggleMenu,
-    #menuSmoke {
-        display: none;
-    }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 768px) {
 
     #wrap>main {
         flex-direction: row;
     }
 
     #wrap>main>aside {
-        min-width: 12.5rem;
-        max-width: 12.5rem;
+        background-color: #ccc;
+        padding: 0 1rem;
+        min-width: 250px;
+        max-width: 250px;
+        border-top: none;
+        border-left: 1px dotted black;
     }
 
 }
 
-/********************************
- ***** Estilos de uso geral *****
- ********************************/
+.aside-grid {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.aside-article {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 90%;
+}
+
+.aside-article img {
+    display: block;
+    width: 4rem;
+    height: auto;
+    margin-right: .5rem;
+}
+
+.aside-article:hover {
+    background-color: #eee;
+}
+
+@media (max-width: 499px) {
+    .aside-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 767px) {
+    .aside-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .aside-article:nth-child(odd) {
+        justify-self: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .aside-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
 .center {
     text-align: center;
@@ -359,12 +277,6 @@ body {
     color: red;
 }
 
-
-#menuSmoke {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .5);
-    top: 9rem;
-    z-index: 100;
+.small {
+    font-size: small;
 }
